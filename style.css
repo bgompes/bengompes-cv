@@ -35,21 +35,7 @@
   --chip-bg: #FFFFFF;
 }
 
-/* Follow the system when the visitor hasn't chosen. */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) {
-    --bg: #F6F3EC;
-    --bg-raised: #FFFFFF;
-    --line: #DCD4C4;
-    --text: #16202B;
-    --text-dim: #475665;
-    --text-faint: #63707C;
-    --accent: #1C7A64;
-    --accent-dim: #A9CFC4;
-    --gold: #8A6A28;
-    --chip-bg: #FFFFFF;
-  }
-}
+/* Dark is the default for everyone; light is opt-in via the toggle. */
 
 * { box-sizing: border-box; }
 
@@ -175,10 +161,6 @@ main {
 .theme-toggle .label-dark { display: inline; }
 :root[data-theme="light"] .theme-toggle .label-light { display: inline; }
 :root[data-theme="light"] .theme-toggle .label-dark { display: none; }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .theme-toggle .label-light { display: inline; }
-  :root:not([data-theme]) .theme-toggle .label-dark { display: none; }
-}
 
 /* Masthead */
 .masthead {

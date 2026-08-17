@@ -9,18 +9,14 @@ document.querySelectorAll(".role-logo").forEach(function (img) {
   img.addEventListener("error", fallback);
 });
 
-// Theme toggle. No explicit choice means follow the system.
+// Theme toggle. Dark is the default; a saved choice overrides it.
 (function () {
   var root = document.documentElement;
   var button = document.getElementById("theme-toggle");
   if (!button) return;
 
-  var systemPrefersLight = function () {
-    return window.matchMedia("(prefers-color-scheme: light)").matches;
-  };
-
   var currentTheme = function () {
-    return root.getAttribute("data-theme") || (systemPrefersLight() ? "light" : "dark");
+    return root.getAttribute("data-theme") || "dark";
   };
 
   button.addEventListener("click", function () {

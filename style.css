@@ -200,8 +200,13 @@ main {
   font-size: 13px;
   color: var(--text-dim);
   margin: 0 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
 }
-.meta .dot { margin: 0 8px; color: var(--text-faint); }
+.meta span { white-space: nowrap; }
+.meta .dot { color: var(--text-faint); }
 
 .links {
   display: flex;
@@ -484,6 +489,8 @@ main {
   main { padding: 32px 18px 64px; }
   .masthead { flex-direction: column; align-items: flex-start; }
   .masthead-text h1 { font-size: 32px; }
+  .meta { flex-direction: column; gap: 4px; }
+  .meta .dot { display: none; }
   .strength-grid { grid-template-columns: 1fr; gap: 18px; }
 
   /* Stat moves under the logo, sharing the left column. */

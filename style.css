@@ -14,7 +14,7 @@
   --line: #26384E;
   --text: #EDEAE1;
   --text-dim: #9FB0C3;
-  --text-faint: #6C7E92;
+  --text-faint: #8697AB;
   --accent: #4FBFA5;
   --accent-dim: #2E5A4F;
   --gold: #C9A961;
@@ -135,11 +135,12 @@ main {
 .theme-toggle {
   font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--gold);
   background: transparent;
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
   border-radius: 999px;
   padding: 5px 12px;
   cursor: pointer;
@@ -148,9 +149,11 @@ main {
   gap: 7px;
   flex-shrink: 0;
 }
-.theme-toggle:hover {
-  color: var(--accent);
-  border-color: var(--accent-dim);
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
 }
 .theme-toggle .toggle-icon {
   font-size: 12px;
@@ -289,16 +292,38 @@ main {
   border-top: 1px solid var(--line);
   padding-top: 14px;
 }
+.strength summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.strength summary::-webkit-details-marker { display: none; }
+.strength summary:hover .strength-title { color: var(--text); }
+.strength .chevron {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .strength .chevron { transition: none; }
+}
+.strength[open] .chevron { transform: rotate(180deg); }
+
 .strength-title {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--accent);
-  margin: 0 0 12px;
+  margin: 0;
 }
 .strength ul {
-  margin: 0;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
   display: flex;
